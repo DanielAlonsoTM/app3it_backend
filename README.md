@@ -1,13 +1,12 @@
+# App3itFrontend
+
 ### Java version
 * JDK 1.8
 
-### To install
-* For unix, run the next command: 
-```
-./gradlew bootRun
-```
+## Unix
 
-* For windows, run the next command: 
-```
-./gradlew.bat bootRun
-```
+Run `./gradlew bootRun` for run the app.
+
+## Windows
+
+Run `./gradlew.bat bootRun` for run the app.
