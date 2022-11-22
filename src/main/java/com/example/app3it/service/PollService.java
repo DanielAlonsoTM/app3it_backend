@@ -19,13 +19,13 @@ public class PollService {
         return pollRepository.findAll();
     }
 
-    public void savePoll(Poll poll) {
-        pollRepository.save(poll);
+    public Poll savePoll(Poll poll) {
+       return pollRepository.save(poll);
     }
 
-    // public Poll getPoll(String email) {
-    //     return pollRepository.findById(email).get();
-    // }
+    public Poll getPoll(String email) {
+        return pollRepository.findByEmail(email);
+    }
 
     // public void deletePoll(String email) {
     //     pollRepository.deleteById(email);

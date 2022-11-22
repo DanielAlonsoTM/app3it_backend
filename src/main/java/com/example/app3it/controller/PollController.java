@@ -1,10 +1,9 @@
 package com.example.app3it.controller;
 
 import com.example.app3it.model.Poll;
+import com.example.app3it.model.Response;
 import com.example.app3it.service.PollService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 // import org.springframework.http.HttpStatus;
 // import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,13 +24,19 @@ public class PollController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> add(@RequestBody Poll poll) {
-        try {
+    public Response add(@RequestBody Poll poll) {
+
+        String message = "";
+        Poll existPoll = pollService.getPoll(poll.getEmail());
+
+        if (existPoll == null) {
             pollService.savePoll(poll);
-            return new ResponseEntity<>(HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+            message = "Saved";
+        } else {
+            message = "Already exists";
         }
+
+        return new Response(message);
     }
 
     // @GetMapping("/{email}")
