@@ -13,11 +13,12 @@ import java.util.List;
 // import java.util.NoSuchElementException;
 
 @RestController
-@RequestMapping("/polls")
+@RequestMapping("/api/polls")
 public class PollController {
     @Autowired
     PollService pollService;
 
+    @CrossOrigin(originPatterns = "http://localhost:4200")
     @GetMapping("")
     public List<Poll> list() {
         return pollService.listAllPoll();

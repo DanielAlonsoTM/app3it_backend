@@ -22,3 +22,5 @@ These additional references should also help you:
 
 * [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
 
+### To Install
+* JDK 1.8
